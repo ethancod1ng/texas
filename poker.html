@@ -2580,8 +2580,8 @@ function updateMobileUI() {
     let html = '';
     for (let i = 1; i < 5; i++) {
       if (players[i] && !players[i].folded) {
-        const card0 = players[i].cards[0] ? createCardHTML(players[i].cards[0], false) : '<div class="card face-down"></div>';
-        const card1 = players[i].cards[1] ? createCardHTML(players[i].cards[1], false) : '<div class="card face-down"></div>';
+        const card0 = players[i].cards[0] ? getCardHTML(players[i].cards[0], false) : '<div class="card face-down"></div>';
+        const card1 = players[i].cards[1] ? getCardHTML(players[i].cards[1], false) : '<div class="card face-down"></div>';
         html += `
           <div class="mobile-opponent">
             <div class="mobile-opponent-name">${['Alex','Mia','Ben','Lucy'][i-1]}</div>
