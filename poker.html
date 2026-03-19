@@ -480,6 +480,7 @@
 
     .raise-slider::-webkit-slider-thumb {
       -webkit-appearance: none;
+      appearance: none;
       width: 26px;
       height: 26px;
       background: linear-gradient(145deg, #d4af37 0%, #b8942e 100%);
@@ -774,6 +775,457 @@
       color: #d4af37;
       font-weight: bold;
     }
+
+    /* ========================================
+       移动端优化样式
+       ======================================== */
+    
+    /* 触摸优化 */
+    @media (hover: none) and (pointer: coarse) {
+      .btn, .lang-btn, .new-game-btn, .help-btn {
+        min-height: 44px;
+        min-width: 44px;
+      }
+    }
+
+    /* 平板设备 (768px - 1024px) */
+    @media screen and (max-width: 1024px) {
+      .table {
+        width: 90vw;
+        height: 60vh;
+        max-width: 800px;
+        max-height: 520px;
+      }
+
+      .community-cards .card-slot,
+      .community-cards .card {
+        width: 70px;
+        height: 98px;
+      }
+
+      .player-cards .card {
+        width: 48px;
+        height: 67px;
+      }
+
+      .player-cards .card .card-rank { font-size: 13px; }
+      .player-cards .card .card-suit { font-size: 10px; }
+      .player-cards .card .card-center { font-size: 18px; }
+
+      .pot-amount {
+        font-size: 36px;
+      }
+
+      .btn {
+        padding: 12px 24px;
+        font-size: 14px;
+      }
+    }
+
+    /* 手机设备 (最大 767px) */
+    @media screen and (max-width: 767px) {
+      body {
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+
+      .game-container {
+        min-height: 100vh;
+        height: auto;
+        padding: 10px 0;
+      }
+
+      .table {
+        width: 95vw;
+        height: 50vh;
+        min-height: 400px;
+        max-height: 500px;
+        margin: 10px auto;
+      }
+
+      .phase-indicator {
+        top: 10px;
+        font-size: 10px;
+        padding: 4px 12px;
+        letter-spacing: 1px;
+      }
+
+      .pot-area {
+        transform: translate(-50%, -60%);
+      }
+
+      .pot-label {
+        font-size: 10px;
+        letter-spacing: 2px;
+        margin-bottom: 4px;
+      }
+
+      .pot-amount {
+        font-size: 28px;
+      }
+
+      .current-bet-info {
+        font-size: 11px;
+        margin-top: 4px;
+      }
+
+      /* 公共牌区域 */
+      .community-cards {
+        gap: 8px;
+        margin-bottom: 15px;
+      }
+
+      .community-cards .card-slot,
+      .community-cards .card {
+        width: 50px;
+        height: 70px;
+      }
+
+      .community-cards .card-slot::after {
+        font-size: 8px;
+        bottom: -16px;
+      }
+
+      .card-rank {
+        font-size: 14px;
+      }
+
+      .card-suit {
+        font-size: 12px;
+      }
+
+      .card-center {
+        font-size: 24px;
+      }
+
+      /* 玩家区域 */
+      .player {
+        gap: 4px;
+      }
+
+      .player-info {
+        padding: 6px 12px;
+        gap: 8px;
+      }
+
+      .player-name {
+        font-size: 12px;
+      }
+
+      .chip-icon {
+        width: 16px;
+        height: 16px;
+        font-size: 9px;
+      }
+
+      .chip-count {
+        font-size: 13px;
+      }
+
+      .player-bet {
+        top: -14px;
+        padding: 3px 8px;
+        font-size: 11px;
+      }
+
+      .player-cards .card {
+        width: 40px;
+        height: 56px;
+      }
+
+      .player-cards .card .card-rank { font-size: 11px; }
+      .player-cards .card .card-suit { font-size: 9px; }
+      .player-cards .card .card-center { font-size: 16px; }
+
+      /* 玩家位置调整 */
+      .player-0 { bottom: 15px; }
+      .player-1 { top: 50px; left: 20px; }
+      .player-2 { top: 120px; right: 20px; }
+      .player-3 { top: 120px; left: 20px; }
+      .player-4 { top: 50px; right: 20px; }
+
+      /* 控制按钮区域 */
+      .controls-area {
+        position: fixed;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 95%;
+        max-width: 500px;
+        gap: 8px;
+        background: rgba(0,0,0,0.8);
+        padding: 10px;
+        border-radius: 15px;
+        z-index: 100;
+      }
+
+      .controls {
+        flex-wrap: wrap;
+        gap: 6px;
+        justify-content: center;
+      }
+
+      .btn {
+        padding: 10px 16px;
+        font-size: 12px;
+        flex: 1 1 auto;
+        min-width: 70px;
+      }
+
+      .btn-call {
+        min-width: 90px;
+      }
+
+      .bet-controls {
+        gap: 6px;
+      }
+
+      .bet-amount {
+        padding: 10px 16px;
+        font-size: 16px;
+        min-width: 80px;
+      }
+
+      /* 加注滑块 */
+      .raise-slider-container {
+        padding: 8px 12px;
+        gap: 8px;
+        width: 100%;
+      }
+
+      .raise-slider {
+        width: 100%;
+        flex: 1;
+      }
+
+      /* 键盘提示 */
+      .keyboard-hint {
+        display: none; /* 移动端隐藏键盘提示 */
+      }
+
+      /* 消息提示 */
+      .message-overlay {
+        padding: 30px 40px;
+        font-size: 22px;
+        max-width: 90%;
+      }
+
+      .message-sub {
+        font-size: 16px;
+        margin-top: 12px;
+      }
+
+      /* 开始屏幕 */
+      .start-screen h1 {
+        font-size: 48px;
+      }
+
+      .start-screen .subtitle {
+        font-size: 16px;
+        margin-bottom: 30px;
+      }
+
+      .start-screen .rules {
+        padding: 20px 25px;
+        max-width: 90%;
+        margin-bottom: 30px;
+      }
+
+      .start-screen .rules h3 {
+        font-size: 16px;
+        margin-bottom: 12px;
+      }
+
+      .start-screen .rules p {
+        font-size: 12px;
+        line-height: 1.6;
+      }
+
+      .btn-start {
+        padding: 16px 50px;
+        font-size: 20px;
+      }
+
+      /* 语言和新游戏按钮 */
+      .lang-selector {
+        top: 10px;
+        right: 10px;
+      }
+
+      .lang-btn {
+        padding: 8px 16px;
+        font-size: 12px;
+      }
+
+      .new-game-btn {
+        top: 10px;
+        left: 10px;
+        padding: 8px 16px;
+        font-size: 12px;
+      }
+
+      /* 帮助按钮 */
+      .help-btn {
+        bottom: 10px;
+        right: 10px;
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+      }
+
+      /* 帮助模态框 */
+      .help-content {
+        padding: 25px;
+        max-width: 90%;
+        max-height: 85vh;
+      }
+
+      .help-content h2 {
+        font-size: 22px;
+        margin-bottom: 15px;
+      }
+
+      .help-content h3 {
+        font-size: 14px;
+        margin: 15px 0 8px;
+      }
+
+      .help-content p,
+      .help-content li {
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .help-close {
+        top: 15px;
+        right: 20px;
+        font-size: 24px;
+      }
+
+      .hand-ranking {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      .hand-ranking-item {
+        padding: 6px 10px;
+        font-size: 12px;
+      }
+
+      .hand-result {
+        top: -24px;
+        font-size: 10px;
+        padding: 3px 8px;
+      }
+    }
+
+    /* 小屏手机 (最大 375px) */
+    @media screen and (max-width: 375px) {
+      .table {
+        height: 45vh;
+        min-height: 350px;
+      }
+
+      .pot-amount {
+        font-size: 24px;
+      }
+
+      .community-cards .card-slot,
+      .community-cards .card {
+        width: 42px;
+        height: 59px;
+      }
+
+      .card-rank {
+        font-size: 12px;
+      }
+
+      .card-suit {
+        font-size: 10px;
+      }
+
+      .card-center {
+        font-size: 20px;
+      }
+
+      .player-cards .card {
+        width: 35px;
+        height: 49px;
+      }
+
+      .player-cards .card .card-rank { font-size: 10px; }
+      .player-cards .card .card-suit { font-size: 8px; }
+      .player-cards .card .card-center { font-size: 14px; }
+
+      .btn {
+        padding: 8px 12px;
+        font-size: 11px;
+        min-width: 60px;
+      }
+
+      .start-screen h1 {
+        font-size: 36px;
+      }
+
+      .message-overlay {
+        padding: 25px 30px;
+        font-size: 18px;
+      }
+    }
+
+    /* 横屏模式优化 */
+    @media screen and (max-height: 500px) and (orientation: landscape) {
+      .game-container {
+        padding: 5px 0;
+      }
+
+      .table {
+        height: 85vh;
+        width: auto;
+        aspect-ratio: 1.5;
+      }
+
+      .controls-area {
+        bottom: 5px;
+        padding: 6px;
+      }
+
+      .btn {
+        padding: 6px 12px;
+        font-size: 11px;
+      }
+
+      .start-screen .rules {
+        max-height: 40vh;
+        overflow-y: auto;
+      }
+    }
+
+    /* 触摸反馈 */
+    @media (hover: none) {
+      .btn:active {
+        transform: scale(0.95);
+        opacity: 0.8;
+      }
+
+      .card:active {
+        transform: scale(0.98);
+      }
+      
+      /* 防止双击缩放 */
+      * {
+        touch-action: manipulation;
+      }
+    }
+    
+    /* 防止文本选择（移动端） */
+    @media (max-width: 767px) {
+      .table, .player, .card, .btn {
+        -webkit-user-select: none;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1046,6 +1498,26 @@ let bigBlindIndex = 2;
 let showdownResults = [];
 let isPlayerTurn = false;
 let roundStartIndex = 0;
+let playersActed = []; // Track which players have acted in current betting round
+
+// Utility functions
+function getNextActivePlayer(startIndex) {
+  let idx = (startIndex + 1) % 5;
+  let attempts = 0;
+  while (attempts < 5 && (players[idx].folded || players[idx].chips === 0)) {
+    idx = (idx + 1) % 5;
+    attempts++;
+  }
+  return idx;
+}
+
+function getActivePlayers() {
+  return players.filter(p => !p.folded && p.chips > 0);
+}
+
+function resetPlayerBets() {
+  players.forEach(p => p.currentBet = 0);
+}
 
 function createDeck() {
   deck = [];
@@ -1286,6 +1758,7 @@ function hideMessage() {
 function playerFold() {
   if (currentPlayerIndex !== 0) return;
   players[0].folded = true;
+  playersActed.push(0); // Mark player as acted
   renderPlayerCards(0);
   showMessage(t.youFolded, '', 1200);
   nextPlayer();
@@ -1293,6 +1766,7 @@ function playerFold() {
 
 function playerCheck() {
   if (currentPlayerIndex !== 0) return;
+  playersActed.push(0); // Mark player as acted
   nextPlayer();
 }
 
@@ -1304,6 +1778,7 @@ function playerCall() {
   players[0].chips -= toCall;
   players[0].currentBet += toCall;
   pot += toCall;
+  playersActed.push(0); // Mark player as acted
   updateUI();
   nextPlayer();
 }
@@ -1351,6 +1826,9 @@ function playerRaise() {
   currentBet = players[0].currentBet;
   pot += (total - toCall);
 
+  // When raising, all other players need to act again
+  playersActed = [0]; // Only current player has acted
+
   document.getElementById('raiseSliderContainer').style.display = 'none';
   document.getElementById('btnConfirmRaise').style.display = 'none';
   document.getElementById('btnRaiseText').style.display = 'block';
@@ -1363,11 +1841,19 @@ function playerAllIn() {
   if (currentPlayerIndex !== 0) return;
   const allIn = players[0].chips;
   const toCall = currentBet - players[0].currentBet;
-  const total = allIn + toCall; // All-in amount = all remaining chips + call amount
+  const total = allIn + toCall;
 
   players[0].chips = 0;
   players[0].currentBet += total - toCall;
-  currentBet = Math.max(currentBet, players[0].currentBet);
+  
+  // If all-in is more than current bet, it's a raise
+  if (players[0].currentBet > currentBet) {
+    currentBet = players[0].currentBet;
+    playersActed = [0]; // Reset, others need to act again
+  } else {
+    playersActed.push(0); // Just mark as acted
+  }
+  
   pot += total - toCall;
   updateUI();
   nextPlayer();
@@ -1376,6 +1862,7 @@ function playerAllIn() {
 function aiDecision(playerIndex) {
   const player = players[playerIndex];
   if (player.folded || player.chips === 0) {
+    playersActed.push(playerIndex);
     nextTurn();
     return;
   }
@@ -1384,21 +1871,33 @@ function aiDecision(playerIndex) {
   const toCall = currentBet - player.currentBet;
   const handStrength = hand.rank / 9;
   const isAllIn = toCall >= player.chips && player.chips > 0;
+  
+  // Position factor: later position = more aggressive
+  const positionFromDealer = (playerIndex - dealerIndex + 5) % 5;
+  const positionBonus = positionFromDealer * 0.05; // 0 to 0.2 bonus
+  
+  // Pot odds consideration
+  const potOdds = pot > 0 ? toCall / (pot + toCall) : 0;
+  const adjustedStrength = handStrength + positionBonus;
 
   let action = 'fold';
+  let isRaise = false;
   const rand = Math.random();
 
   if (toCall === 0) {
-    if (rand < 0.35 + handStrength * 0.5) {
+    // No bet to call - can check or raise
+    if (rand < 0.3 + adjustedStrength * 0.5) {
       action = 'check';
-    } else if (rand < 0.5 + handStrength * 0.35) {
-      const raiseAmount = Math.floor((0.15 + handStrength * 0.4) * player.chips);
+    } else if (rand < 0.45 + adjustedStrength * 0.4) {
+      // More likely to raise with good position and good hand
+      const raiseAmount = Math.floor((0.1 + adjustedStrength * 0.5) * player.chips);
       if (raiseAmount > 20) {
         player.chips -= raiseAmount;
         player.currentBet += raiseAmount;
         currentBet = Math.max(currentBet, player.currentBet);
         pot += raiseAmount;
         action = 'raise';
+        isRaise = true;
       } else {
         action = 'check';
       }
@@ -1406,7 +1905,8 @@ function aiDecision(playerIndex) {
       action = 'check';
     }
   } else if (isAllIn) {
-    if (handStrength > 0.35 || rand < handStrength * 0.5) {
+    // Someone is all-in - need strong hand to call
+    if (adjustedStrength > 0.4 || rand < adjustedStrength * 0.6) {
       player.chips -= toCall;
       player.currentBet += toCall;
       pot += toCall;
@@ -1415,36 +1915,42 @@ function aiDecision(playerIndex) {
       player.folded = true;
     }
   } else {
-    let willAct = false;
-    if (rand < handStrength * 0.75 + 0.1) {
-      if (toCall <= player.chips * 0.4 || handStrength > 0.5) {
+    // Regular bet - consider pot odds
+    const shouldCall = adjustedStrength > potOdds || rand < adjustedStrength * 0.8;
+    
+    if (shouldCall) {
+      if (toCall <= player.chips * 0.3 || adjustedStrength > 0.5) {
         player.chips -= toCall;
         player.currentBet += toCall;
         pot += toCall;
         action = 'call';
-        willAct = true;
-      } else if (handStrength > 0.65 && toCall <= player.chips * 0.6) {
+      } else if (adjustedStrength > 0.7 && toCall <= player.chips * 0.5) {
         player.chips -= toCall;
         player.currentBet += toCall;
         pot += toCall;
         action = 'call';
-        willAct = true;
+      } else {
+        player.folded = true;
       }
-    } else if (toCall <= player.chips * 0.15) {
+    } else if (toCall <= player.chips * 0.1 && rand < 0.3) {
+      // Cheap call, might as well see next card
       player.chips -= toCall;
       player.currentBet += toCall;
       pot += toCall;
       action = 'call';
-      willAct = true;
-    }
-
-    if (!willAct) {
+    } else {
       player.folded = true;
     }
   }
 
-  updateUI();
+  // Mark player as acted
+  if (isRaise) {
+    playersActed = [playerIndex];
+  } else {
+    playersActed.push(playerIndex);
+  }
 
+  updateUI();
   setTimeout(nextTurn, 700);
 }
 
@@ -1486,17 +1992,27 @@ function nextTurn() {
 }
 
 function checkRoundComplete() {
-  const activePlayers = players.filter(p => !p.folded);
-  if (activePlayers.length <= 1) return true;
+  const activePlayers = players.filter(p => !p.folded && p.chips > 0);
+  if (activePlayers.length === 0) return true;
 
   const maxBet = Math.max(...players.map(p => p.currentBet));
 
-  // Check if everyone who can act has matched
-  for (let p of activePlayers) {
+  // Check if all active players have acted and matched the bet
+  for (let i = 0; i < 5; i++) {
+    const p = players[i];
+    if (p.folded || p.chips === 0) continue;
+    
+    // Player hasn't acted yet
+    if (!playersActed.includes(i)) {
+      return false;
+    }
+    
+    // Player hasn't matched the current bet and still has chips
     if (p.currentBet < maxBet && p.chips > 0) {
       return false;
     }
   }
+  
   return true;
 }
 
@@ -1542,6 +2058,7 @@ function endBettingRound() {
   // Reset for new betting round
   currentBet = 0;
   players.forEach(p => p.currentBet = 0);
+  playersActed = []; // Reset acted tracking for new round
   
   // Find first active player after dealer for new betting round
   let startIdx = (dealerIndex + 1) % 5;
@@ -1638,6 +2155,7 @@ function startNewHand() {
   phase = 'preflop';
   isPlayerTurn = false;
   roundStartIndex = dealerIndex;
+  playersActed = []; // Reset acted tracking
 
   const smallBlind = Math.min(10, players[smallBlindIndex].chips);
   players[smallBlindIndex].chips -= smallBlind;
@@ -1752,6 +2270,19 @@ document.addEventListener('keydown', (e) => {
 });
 
 document.getElementById('helpBtn').addEventListener('click', showHelp);
+
+// Global error handler
+window.addEventListener('error', (event) => {
+  console.error('Game Error:', event.error);
+  // Optionally show user-friendly error message
+  // showMessage('An error occurred. Please refresh the page.', '', 5000);
+});
+
+// Unhandled promise rejection handler
+window.addEventListener('unhandledrejection', (event) => {
+  console.error('Unhandled Promise Rejection:', event.reason);
+});
+
 </script>
 </body>
 </html>
