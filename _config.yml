@@ -1,0 +1,11 @@
+markdown: kramdown
+lsi: false
+safe: true
+source: .
+incremental: false
+highlighter: null
+kramdown:
+  input: GFM
+extensions:
+  - autolink_beside_address
+  - tables
