@@ -1245,18 +1245,24 @@
       
       /* 隐藏圆形牌桌，用新布局 */
       .table {
-        display: none !important;
+        display: none;
       }
       
-      /* 移动端专用布局 */
+      /* 移动端专用布局 - 默认隐藏，由JS控制显示 */
       .mobile-layout {
-        display: flex !important;
+        display: none;
         flex-direction: column;
         height: 100vh;
         height: 100dvh;
         background: linear-gradient(180deg, #1a3d1f 0%, #0d1f12 100%);
         padding: 10px;
         gap: 8px;
+        width: 100%;
+      }
+      
+      /* JS显式显示时用这个class */
+      .mobile-layout.active {
+        display: flex;
       }
       
       /* 顶部区域 - 信息面板 */
@@ -1311,6 +1317,13 @@
         height: 67px;
         font-size: 14px;
         border-radius: 6px;
+        flex-shrink: 0;
+      }
+      
+      /* 移动端背面朝下的卡牌样式 */
+      .mobile-community .card.face-down {
+        background: linear-gradient(145deg, #c41e3a 0%, #8b1528 100%);
+        border: 2px solid #8b1528;
       }
       
       /* 其他玩家区域 */
@@ -1351,6 +1364,12 @@
         height: 39px;
         font-size: 10px;
         border-radius: 4px;
+        flex-shrink: 0;
+      }
+      
+      .mobile-opponent-cards .card.face-down {
+        background: linear-gradient(145deg, #c41e3a 0%, #8b1528 100%);
+        border: 1px solid #8b1528;
       }
       
       .mobile-opponent-chips {
@@ -1398,6 +1417,7 @@
         display: flex;
         gap: 10px;
         justify-content: center;
+        flex-wrap: nowrap;
       }
       
       .mobile-player-cards .card {
@@ -1406,6 +1426,7 @@
         font-size: 22px;
         border-radius: 8px;
         box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        flex-shrink: 0;
       }
       
       /* 操作按钮区域 */
@@ -2560,18 +2581,19 @@ function detectMobileLayout() {
   
   if (isMobile && mobileLayout) {
     desktopTable.style.display = 'none';
-    mobileLayout.style.display = 'flex';
+    mobileLayout.classList.add('active');
     controlsArea.style.display = 'none';
   } else if (desktopTable && mobileLayout) {
     desktopTable.style.display = 'flex';
-    mobileLayout.style.display = 'none';
+    mobileLayout.classList.remove('active');
     controlsArea.style.display = 'flex';
   }
 }
 
 // 更新移动端UI
 function updateMobileUI() {
-  if (document.getElementById('mobileLayout').style.display === 'none') return;
+  const mobileLayout = document.getElementById('mobileLayout');
+  if (!mobileLayout || !mobileLayout.classList.contains('active')) return;
   
   // 更新公共牌
   const communityEl = document.getElementById('mobileCommunity');
